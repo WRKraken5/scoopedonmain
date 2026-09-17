@@ -1,22 +1,26 @@
 /* Scooped On Main, LLC -- design system.
-   Warm charcoal background, waffle-cone amber accent, cream type.
+   Palette pulled from the brand mark: plum-black background, lavender
+   script purple, deep plaque purple, cherry red, and scoop cream.
    No hover animations, no glow orbs, no bento grids, no glass cards. */
 
 :root {
-  --color-bg: #1A1816;          /* page background: deep warm slate */
-  --color-bg-raised: #221E1A;   /* raised surfaces, alternating sections */
-  --color-bg-nav: #15130F;      /* header, footer, banner */
-  --color-ink: #FDFBF7;         /* headings, primary text -- 15.8:1 on bg */
-  --color-ink-soft: #D9D0C4;    /* body, secondary text -- 10.9:1 on bg */
-  --color-caption: #A99C8B;     /* captions, placeholders -- 6.1:1 on bg */
-  --color-amber: #D97706;       /* accent: links, badges, index numerals */
-  --color-amber-strong: #F2994A;/* primary buttons on dark -- 6.0:1 with dark text */
-  --color-line: #3A332C;        /* dividers, borders */
-  --color-input-border: #5B5148;
+  --color-bg: #1E1730;          /* page background: deep plum-black */
+  --color-bg-raised: #271F3D;   /* raised surfaces, alternating sections */
+  --color-bg-nav: #150F22;      /* header, footer, banner */
+  --color-ink: #FAF6EC;         /* headings, primary text -- scoop cream */
+  --color-ink-soft: #D9D2E8;    /* body, secondary text */
+  --color-caption: #A99BC4;     /* captions, placeholders */
+  --color-amber: #9B8AE0;       /* accent: links, badges, index numerals -- script purple */
+  --color-amber-strong: #2E1B47;/* primary buttons, strong fills -- deep plaque purple */
+  --color-focus: #C3B4F5;       /* focus ring -- bright lavender, visible on dark surfaces */
+  --color-cherry: #C0392B;      /* cherry red accent -- star ratings, small highlights */
+  --color-line: #392C52;        /* dividers, borders */
+  --color-input-border: #5C4A80;
   --color-error: #F0836A;       /* form errors -- legible on dark bg */
 
   --font-display: "Playfair Display", ui-serif, Georgia, serif;
   --font-body: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-script: "Kaushan Script", cursive;
 
   --step-0: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
   --step-1: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
@@ -76,7 +80,7 @@ h2 { font-size: var(--step-3); }
 h3 { font-size: var(--step-2); }
 h4 { font-size: var(--step-1); }
 p { margin: 0 0 var(--space-2) 0; }
-a { color: var(--color-amber-strong); }
+a { color: var(--color-amber); }
 
 /* No hover animations anywhere: state changes are instant, not transitioned. */
 a, button, .btn, .menu-card, .review-card { transition: none; }
@@ -95,7 +99,7 @@ a, button, .btn, .menu-card, .review-card { transition: none; }
 .skip-link:focus { top: var(--space-2); }
 
 :focus-visible {
-  outline: 3px solid var(--color-amber-strong);
+  outline: 3px solid var(--color-focus);
   outline-offset: 2px;
 }
 a:focus:not(:focus-visible) { outline: none; }
@@ -126,14 +130,42 @@ section[id] { scroll-margin-top: var(--header-offset); }
 .logo {
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: var(--step-1);
+  gap: 0.55rem;
   text-decoration: none;
   color: var(--color-ink);
 }
 .logo-mark { width: 2.25rem; height: 2.25rem; flex-shrink: 0; }
+.logo-word {
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: 1.7rem;
+  line-height: 1;
+  color: var(--color-amber);
+}
+.logo-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-ink);
+  background: var(--color-amber-strong);
+  border-radius: 999px;
+  padding: 0.35rem 0.7rem;
+}
+.logo-pill::before,
+.logo-pill::after {
+  content: "\2022";
+  color: var(--color-ink);
+  opacity: 0.7;
+  font-size: 0.6rem;
+}
+@media (max-width: 26rem) {
+  .logo-pill { display: none; }
+}
 .main-nav ul {
   list-style: none;
   display: flex;
@@ -174,9 +206,9 @@ section[id] { scroll-margin-top: var(--header-offset); }
   text-decoration: none;
   cursor: pointer;
   background: var(--color-amber-strong);
-  color: #1A1206;
+  color: var(--color-ink);
 }
-.btn:hover { background: var(--color-ink); border-color: var(--color-ink); color: var(--color-bg); }
+.btn:hover { background: var(--color-ink); border-color: var(--color-ink); color: var(--color-amber-strong); }
 .btn-sm { padding: 0.45rem 0.9rem; font-size: 0.875rem; }
 .btn-secondary {
   background: transparent;
@@ -223,7 +255,7 @@ section[id] { scroll-margin-top: var(--header-offset); }
   padding: 0.45rem 0.9rem;
   border-radius: 2px;
 }
-.badge .star { color: var(--color-amber); }
+.badge .star { color: var(--color-cherry); }
 
 .section-head { max-width: var(--max-reading); margin-bottom: var(--space-4); }
 .section-eyebrow {
@@ -310,7 +342,7 @@ section[id] { scroll-margin-top: var(--header-offset); }
   border-top: 1px solid var(--color-line);
 }
 .review-card:last-child { border-bottom: 1px solid var(--color-line); }
-.review-stars { color: var(--color-amber); font-size: 0.9rem; letter-spacing: 0.15em; margin-bottom: var(--space-2); }
+.review-stars { color: var(--color-cherry); font-size: 0.9rem; letter-spacing: 0.15em; margin-bottom: var(--space-2); }
 .review-card blockquote {
   margin: 0 0 var(--space-2) 0;
   font-size: var(--step-1);
@@ -399,7 +431,7 @@ select {
   background: var(--color-bg);
   color: var(--color-ink);
 }
-input:focus, textarea:focus, select:focus { border-color: var(--color-amber-strong); }
+input:focus, textarea:focus, select:focus { border-color: var(--color-focus); }
 .field-error { color: var(--color-error); font-size: 0.875rem; margin-top: 0.35rem; }
 .consent-row {
   display: flex;
@@ -411,7 +443,7 @@ input:focus, textarea:focus, select:focus { border-color: var(--color-amber-stro
   margin-top: 0.3rem;
   width: 1.15rem;
   height: 1.15rem;
-  accent-color: var(--color-amber-strong);
+  accent-color: var(--color-amber);
 }
 .consent-row label { font-weight: 400; }
 
@@ -425,7 +457,7 @@ input:focus, textarea:focus, select:focus { border-color: var(--color-amber-stro
   background: var(--color-bg-nav);
   color: var(--color-ink);
   padding: var(--space-3);
-  border-top: 2px solid var(--color-amber-strong);
+  border-top: 2px solid var(--color-amber);
   z-index: 200;
 }
 .consent-banner .container {

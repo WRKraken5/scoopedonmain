@@ -40,4 +40,4 @@ A static, security-conscious marketing site for Scooped On Main, an ice cream an
 - Skip-to-content link, visible `:focus-visible` rings on every interactive element, and no removed outlines.
 - All form fields use explicit `<label>` elements plus `aria-describedby` error regions.
 - Reduced-motion users get all content immediately visible with no animation.
-- Color palette (warm charcoal `#1A1816` background, cream `#FDFBF7` text, amber `#D97706`/`#F2994A` accents) is chosen to clear WCAG AA contrast; verify with a contrast checker if you adjust it.
+- Color palette (plum-black `#1E1730` background, scoop-cream `#FAF6EC` text, script-purple `#9B8AE0` and plaque-purple `#2E1B47` accents, cherry-red `#C0392B` for star ratings) is pulled from the brand logo and chosen to clear WCAG AA contrast; verify with a contrast checker if you adjust it.
